@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #login-form {
+            margin: 100px auto;
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-form">
+        <h2>Login</h2>
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password"><br><br>
+        <button onclick="checkLogin()">Entrar</button>
+    </div>
+
+    <script>
+        function checkLogin() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const body = document.body;
+
+            if (username === "godofredo" && password === "hamster123") {
+                window.location.href ="./success.html";
+            } else {
+                window.location.href ="./failure.html";
+            }
+        }
+    </script>
+</body>
+</html>

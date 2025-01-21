@@ -1,1 +1,0 @@
-# explicacao_seguranca

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Estático</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; background: #f4f4f4; }
+        .box { margin: 100px auto; width: 300px; padding: 20px; border: 1px solid #ccc; background: #fff; border-radius: 8px; }
+        .erro { color: red; margin-top: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Verificação de Login Estática</h2>
+        <input type="text" id="user" placeholder="Usuário"><br><br>
+        <input type="password" id="pass" placeholder="Senha"><br><br>
+        <button onclick="logar()">Entrar</button>
+        <div id="mensagem" class="erro"></div>
+    </div>
+
+    <script>
+        function logar() {
+            const usuario = document.getElementById('user').value;
+            const senha = document.getElementById('pass').value;
+            const msg = document.getElementById('mensagem');
+
+            // LÓGICA EXPOSTA: O aluno verá isso no Inspecionar Elemento
+            if (usuario === "godofredo" && senha === "123") {
+                window.location.href = "sucesso.html";
+            } else {
+                msg.innerText = "Usuário ou senha inválidos!";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Estático</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; background: #f4f4f4; }
+        .box { margin: 100px auto; width: 300px; padding: 20px; border: 1px solid #ccc; background: #fff; border-radius: 8px; }
+        .erro { color: red; margin-top: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Login WebService</h2>
+        <form method="POST">
+            <input type="text" name="usuario" placeholder="Usuário"><br><br>
+            <input type="password" name="senha" placeholder="Senha"><br><br>
+            <button type="submit">Entrar</button>
+        </form>
+        {% if erro %}
+            <p style="color: red;">{{ erro }}</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>
+
+

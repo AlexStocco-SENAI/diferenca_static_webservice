@@ -11,18 +11,41 @@
 </head>
 <body>
     <div class="box">
-        <h2>Login WebService</h2>
-        <form method="POST">
-            <input type="text" name="usuario" placeholder="Usuário"><br><br>
-            <input type="password" name="senha" placeholder="Senha"><br><br>
-            <button type="submit">Entrar</button>
-        </form>
-        {% if erro %}
-            <p style="color: red;">{{ erro }}</p>
-        {% endif %}
+        <h2>Verificação de Login via API</h2>
+        <input type="text" id="user" placeholder="Usuário"><br><br>
+        <input type="password" id="pass" placeholder="Senha"><br><br>
+        <button onclick="autenticar()">Entrar</button>
+        <div id="mensagem" class="erro"></div>
     </div>
 
+    <script>
+        async function autenticar() {
+            const user = document.getElementById('user').value;
+            const pass = document.getElementById('pass').value;
+            const msg = document.getElementById('mensagem');
+            msg.innerText = ""; // Limpa mensagens anteriores
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ user, pass })
+                });
+
+                if (response.ok) {
+                    // O servidor criou a sessão, agora podemos ir para a página protegida
+                    window.location.href = "/sucesso";
+                } else {
+                    msg.innerText = "Usuário ou senha inválidos!";
+                }
+            } catch (error) {
+                msg.innerText = "Erro ao conectar com o servidor.";
+            }
+        }
+    </script>
 </body>
 </html>
 
 
+</body>
+</html>

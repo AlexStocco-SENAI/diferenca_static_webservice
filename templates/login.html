@@ -1,33 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Login</title>
+    <title>Login Estático</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        #login-form {
-            margin: 100px auto;
-            width: 300px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            background-color: #fff;
-        }
+        body { font-family: sans-serif; text-align: center; background: #f4f4f4; }
+        .box { margin: 100px auto; width: 300px; padding: 20px; border: 1px solid #ccc; background: #fff; border-radius: 8px; }
+        .erro { color: red; margin-top: 10px; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div id="login-form">
-        <h2>Login</h2>
+    <div class="box">
+        <h2>Login WebService</h2>
         <form method="POST">
-            <label for="username">Usuário:</label>
-            <input type="text" id="username" name="username"><br><br>
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password"><br><br>
+            <input type="text" name="usuario" placeholder="Usuário"><br><br>
+            <input type="password" name="senha" placeholder="Senha"><br><br>
             <button type="submit">Entrar</button>
         </form>
+        {% if erro %}
+            <p style="color: red;">{{ erro }}</p>
+        {% endif %}
     </div>
+
 </body>
 </html>
+
+

@@ -1,20 +1,20 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
-
 @app.route('/', methods=['GET', 'POST'])
-def login():
+def login_tradicional():
+    erro = None
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-
-        if username == 'godofredo' and password == 'adoro_girassol':
-            return render_template('success.html')
+        usuario = request.form.get('usuario')
+        senha = request.form.get('senha')
+        
+        if usuario == "godofredo" and senha == "amogirassol":
+            return render_template('sucesso.html')
         else:
-            return render_template('failure.html')
-    return render_template('login.html')
-
+            erro = "Acesso Negado: Credenciais Incorretas."
+            
+    return render_template('login.html', erro=erro)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0",port=8080)

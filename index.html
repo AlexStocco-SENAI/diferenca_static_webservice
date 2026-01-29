@@ -1,43 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Login</title>
+    <title>Login Estático</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        #login-form {
-            margin: 100px auto;
-            width: 300px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            background-color: #fff;
-        }
+        body { font-family: sans-serif; text-align: center; background: #f4f4f4; }
+        .box { margin: 100px auto; width: 300px; padding: 20px; border: 1px solid #ccc; background: #fff; border-radius: 8px; }
+        .erro { color: red; margin-top: 10px; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div id="login-form">
-        <h2>Login</h2>
-        <label for="usuario">Usuário:</label>
-        <input type="text" id="usuario" name="usuario"><br><br>
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha"><br><br>
-        <button onclick="checkLogin()">Entrar</button>
+    <div class="box">
+        <h2>Verificação de Login Estática</h2>
+        <input type="text" id="user" placeholder="Usuário"><br><br>
+        <input type="password" id="pass" placeholder="Senha"><br><br>
+        <button onclick="logar()">Entrar</button>
+        <div id="mensagem" class="erro"></div>
     </div>
 
     <script>
-        function checkLogin() {
-            const usuario = document.getElementById("usuario").value;
-            const senha = document.getElementById("senha").value;
-            const body = document.body;
+        function logar() {
+            const usuario = document.getElementById('user').value;
+            const senha = document.getElementById('pass').value;
+            const msg = document.getElementById('mensagem');
 
-            if (usuario === "godofredo" && senha === "hamster123") {
-                window.location.href ="./success.html";
+            // LÓGICA EXPOSTA: O aluno verá isso no Inspecionar Elemento
+            if (usuario === "godofredo" && senha === "123") {
+                window.location.href = "sucesso.html";
             } else {
-                window.location.href ="./failure.html";
+                msg.innerText = "Usuário ou senha inválidos!";
             }
         }
     </script>
